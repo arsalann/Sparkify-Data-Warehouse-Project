@@ -37,10 +37,9 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 #################
 #################
 
-
-##################
+#################
 # CREATE TABLES #
-##################
+#################
 staging_events_table_create= ("""
     CREATE TABLE IF NOT EXISTS staging_events (
                 event_id    BIGINT IDENTITY(0,1)    NOT NULL,
@@ -82,7 +81,7 @@ staging_songs_table_create = ("""
 
 songplay_table_create = ("""
     CREATE TABLE IF NOT EXISTS songplays (
-                songplay_id INTEGER IDENTITY(0,1)   NOT NULL SORTKEY,
+                songplay_id INTEGER IDENTITY(0,1)   NOT NULL PRIMARY KEY,
                 start_time  TIMESTAMP               NOT NULL,
                 user_id     VARCHAR(50)             NOT NULL DISTKEY,
                 level       VARCHAR(10)             NOT NULL,
@@ -96,7 +95,7 @@ songplay_table_create = ("""
 
 user_table_create = ("""
     CREATE TABLE IF NOT EXISTS users (
-                user_id     INTEGER                 NOT NULL SORTKEY,
+                user_id     INTEGER                 NOT NULL PRIMARY KEY,
                 first_name  VARCHAR(50)             NULL,
                 last_name   VARCHAR(80)             NULL,
                 gender      VARCHAR(10)             NULL,
@@ -106,7 +105,7 @@ user_table_create = ("""
 
 song_table_create = ("""
     CREATE TABLE IF NOT EXISTS songs (
-                song_id     VARCHAR(50)             NOT NULL SORTKEY,
+                song_id     VARCHAR(50)             NOT NULL PRIMARY KEY,
                 title       VARCHAR(500)            NOT NULL,
                 artist_id   VARCHAR(50)             NOT NULL,
                 year        INTEGER                 NOT NULL,
@@ -116,7 +115,7 @@ song_table_create = ("""
 
 artist_table_create = ("""
     CREATE TABLE IF NOT EXISTS artists (
-                artist_id   VARCHAR(50)             NOT NULL SORTKEY,
+                artist_id   VARCHAR(50)             NOT NULL PRIMARY KEY,
                 name        VARCHAR(500)            NULL,
                 location    VARCHAR(500)            NULL,
                 latitude    DECIMAL(9)              NULL,
@@ -126,7 +125,7 @@ artist_table_create = ("""
 
 time_table_create = ("""
     CREATE TABLE IF NOT EXISTS time (
-                start_time  TIMESTAMP               NOT NULL SORTKEY,
+                start_time  TIMESTAMP               NOT NULL PRIMARY KEY,
                 hour        SMALLINT                NULL,
                 day         SMALLINT                NULL,
                 week        SMALLINT                NULL,

@@ -31,14 +31,6 @@ def create_tables(cur, conn):
     print("Create Table Query: Successful!")
 
 
-# Connect to AWS Redshit and create new database (sparkifydb)
-# Drop existing tables and create new tables
-# Read AWS credentials from the configuration file
-    # host: Redshift Cluster address
-    # dbname: database name
-    # user: database username
-    # password: database password
-    # port: database connection port
 def main():
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
